@@ -10,13 +10,13 @@ export default function Contact() {
     e.preventDefault();
     setIsSending(true);
     setMessage({ type: '', text: '' });
-
-    emailjs.sendForm(
-      'service_ihg6ull',     // Your Service ID
-      'template_1abe1hr',    // Your Template ID
-      formRef.current,
-      'Dm3OVd0Mpu8GIh0Th'    // Your Public Key
-    )
+    
+emailjs.sendForm(
+  import.meta.env.VITE_EMAILJS_SERVICE,
+  import.meta.env.VITE_EMAILJS_TEMPLATE,
+  formRef.current,
+  import.meta.env.VITE_EMAILJS_PUBLIC
+)
     .then((result) => {
       setMessage({ type: 'success', text: 'Message sent successfully!' });
       formRef.current.reset();
